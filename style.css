@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  color: white;
+  background: #000000; /* фон по умолчанию черный */
+  overflow: hidden;
+  position: relative;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  color: #ff4d6d;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+button {
+  background: #ff4d6d;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 20px;
+}
+
+button:hover {
+  background: #ff6f8e;
+  transform: scale(1.05);
+}
+
+video {
+  max-width: 95%;
+  max-height: 50%;
+  border-radius: 16px;
+  box-shadow: 0 0 60px rgba(255, 77, 109, 0.6), 0 0 100px rgba(255, 77, 109, 0.3) inset;
+}
+
+/* Сердечки сверху */
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ff4d6d;
+  transform: rotate(-45deg);
+  border-radius: 3px;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ff4d6d;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  top: 0;
+  left: 10px;
+}
+
+/* Анимация падения сердечек сверху */
+@keyframes floatDown {
+  0% { transform: translateY(-50px) scale(0); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100vh) scale(1); opacity: 0; }
+}
+
+/* Адаптив для маленьких экранов */
+@media (max-width: 400px) {
+  h1 {
+    font-size: 20px;
+  }
+  p {
+    font-size: 16px;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  video {
+    max-height: 40%;
+  }
+}
